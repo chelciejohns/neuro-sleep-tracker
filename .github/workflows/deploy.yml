@@ -36,25 +36,6 @@ jobs:
         working-directory: infra
         run: terraform validate
 
-      - name: Terraform Apply
+      - name: Terraform Plan
         working-directory: infra
-        run: terraform apply -auto-approve
-
-      - name: Capture Terraform Outputs
-        id: tf_outputs
-        working-directory: infra
-        run: |
-          echo "bucket_name=$(terraform output -raw website_bucket_name)" >> $GITHUB_OUTPUT
-          echo "api_base_url=$(terraform output -raw api_base_url)" >> $GITHUB_OUTPUT
-
-      - name: Generate frontend config
-        run: |
-          cat <<EOF > frontend/config.js
-          window.APP_CONFIG = {
-            apiBaseUrl: "${{ steps.tf_outputs.outputs.api_base_url }}"
-          };
-          EOF
-
-      - name: Deploy frontend to S3
-        run: |
-          aws s3 sync frontend/ s3://${{ steps.tf_outputs.outputs.bucket_name }} --deletes
+        run: terraform plan -input=false
