@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuro-Sleep Tracker - Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>My Serverless Neuro-Sleep Tracker on AWS</h1>
+    <nav>
+      <a href="index.html">Entry Form</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="stats-grid">
+      <div class="card stat-card">
+        <h3>Avg Sleep Quality</h3>
+        <p id="avg-sleep-quality">-</p>
+      </div>
+      <div class="card stat-card">
+        <h3>Avg Sensory Load</h3>
+        <p id="avg-sensory-load">-</p>
+      </div>
+      <div class="card stat-card">
+        <h3>Avg Masking Level</h3>
+        <p id="avg-masking-level">-</p>
+      </div>
+      <div class="card stat-card">
+        <h3>Avg Nightmare Intensity</h3>
+        <p id="avg-nightmare-intensity">-</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Trend Chart</h2>
+      <canvas id="trendChart"></canvas>
+    </section>
+
+    <section class="card">
+      <h2>Recent Entries</h2>
+      <div id="entries-list"></div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuro-Sleep Tracker - Entry Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>My Serverless Neuro-Sleep Tracker on AWS</h1>
+    <nav>
+      <a href="index.html">Entry Form</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Daily Entry</h2>
+      <p>Log today’s neuro-sleep data.</p>
+
+      <form id="entry-form">
+        <label for="entryDate">Entry Date</label>
+        <input type="date" id="entryDate" required />
+
+        <label for="sleepHours">Sleep Hours</label>
+        <input type="number" id="sleepHours" min="0" max="24" required />
+
+        <label for="sleepQuality">Sleep Quality (1-10)</label>
+        <input type="number" id="sleepQuality" min="1" max="10" required />
+
+        <label for="sensoryLoad">Sensory Load (1-10)</label>
+        <input type="number" id="sensoryLoad" min="1" max="10" required />
+
+        <label for="maskingLevel">Masking Level (1-10)</label>
+        <input type="number" id="maskingLevel" min="1" max="10" required />
+
+        <label for="nightmareIntensity">Nightmare Intensity (0-10)</label>
+        <input type="number" id="nightmareIntensity" min="0" max="10" required />
+
+        <label for="notes">Notes</label>
+        <textarea id="notes" maxlength="500" rows="5" placeholder="Optional notes..."></textarea>
+
+        <button type="submit">Save Entry</button>
+      </form>
+
+      <div id="form-message"></div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
